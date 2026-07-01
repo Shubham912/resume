@@ -1,1010 +1,1062 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Shubham Raman — Cloud & Data Engineer with strong backend experience in Java, C#, and Python. Azure, distributed systems, and scalable data pipelines.">
+	<title>Shubham Raman | Cloud & Data Engineer · Backend Systems</title>
 
-	<!-- Fontawesome kit code -->
-	<script src="https://kit.fontawesome.com/a51dece881.js" crossorigin="anonymous"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
 
-	<!-- CSS Stylesheets - Bootstrap -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-	<!-- JS, Popper.js, and jQuery - Bootstrap -->
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-		</script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-		integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-		</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-		</script>
 	<style>
+		:root {
+			--font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+			--font-body: 'Inter', system-ui, sans-serif;
+			--color-bg: #ffffff;
+			--color-bg-alt: #f8fafc;
+			--color-surface: #ffffff;
+			--color-text: #334155;
+			--color-text-muted: #64748b;
+			--color-heading: #0f172a;
+			--color-primary: #2563eb;
+			--color-primary-dark: #1d4ed8;
+			--color-accent: #0ea5e9;
+			--color-border: #e2e8f0;
+			--color-hero: #0b1220;
+			--shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.06);
+			--shadow-md: 0 4px 24px rgba(15, 23, 42, 0.08);
+			--shadow-lg: 0 12px 40px rgba(15, 23, 42, 0.12);
+			--radius: 12px;
+			--radius-lg: 16px;
+			--max-width: 1100px;
+			--section-pad: 5rem 1.5rem;
+		}
+
+		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+		html { scroll-behavior: smooth; font-size: 16px; }
+
 		body {
-			font-family: serif;
-			margin: 0;
+			font-family: var(--font-body);
+			color: var(--color-text);
+			background: var(--color-bg);
+			line-height: 1.7;
+			-webkit-font-smoothing: antialiased;
 		}
 
-		a {
-			text-decoration: none;
+		h1, h2, h3, h4, h5 {
+			font-family: var(--font-heading);
+			color: var(--color-heading);
+			line-height: 1.25;
 		}
 
-		nav {
-			margin-bottom: 50px;
+		a { color: inherit; text-decoration: none; }
+
+		img { max-width: 100%; display: block; }
+
+		.container {
+			max-width: var(--max-width);
+			margin: 0 auto;
+			width: 100%;
 		}
 
-		nav a {
-			color: white !important;
-			transition: font-size 0.5s ease-in-out;
+		/* ── Navigation ── */
+		.navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 100;
+			background: rgba(11, 18, 32, 0.85);
+			backdrop-filter: blur(12px);
+			-webkit-backdrop-filter: blur(12px);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 		}
 
-		nav a:hover {
-			font-size: 1.5rem;
+		.navbar .container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0.9rem 1.5rem;
 		}
 
-		nav li {
-			text-align: center;
-			font-size: 1.5em;
-			font-weight: 600;
-			font-family: sans-serif;
-		}
-
-		.navbar-toggler-icon {
-			background-color: white !important;
-		}
-
-		/* Body Header */
-
-		#body-header {
-			height: auto;
-			opacity: 0.8;
-			background-image: url("images/background.jpg");
-			background-size: cover;
-			background-position: center;
-			background-attachment: fixed;
-			padding-bottom: 150px;
-		}
-
-
-		/* Horizontal-list */
-
-		.horizontal-list {
-			list-style: none;
-			padding-left: 0;
-			margin: 0;
-		}
-
-		.horizontal-list li {
-			display: inline-block;
-			margin: 10px 16px 10px 10px;
-		}
-
-		.horizontal-list li a {
-			color: white;
-			font-size: 1.5em;
-		}
-
-		.nav-menu li a {
-			transition: color 0.5s, border-bottom 4s;
-		}
-
-		.nav-menu li a:hover {
-			color: lightgrey;
-			border-bottom: 1px solid black;
-		}
-
-		.text-center {
-			text-align: center;
-		}
-
-		/* Name and Social Icons */
-
-		#name-social-container {
-			margin-top: 15vh;
-		}
-
-		#my-name {
-			font-size: 5rem;
-			letter-spacing: 0.1rem;
-			color: white;
+		.nav-brand {
+			font-family: var(--font-heading);
 			font-weight: 700;
+			font-size: 1.1rem;
+			color: #fff;
+			letter-spacing: -0.02em;
+		}
+
+		.nav-brand span { color: var(--color-accent); }
+
+		.nav-links {
+			display: flex;
+			list-style: none;
+			gap: 0.25rem;
+		}
+
+		.nav-links a {
+			color: rgba(255, 255, 255, 0.75);
+			font-size: 0.875rem;
+			font-weight: 500;
+			padding: 0.5rem 0.85rem;
+			border-radius: 8px;
+			transition: color 0.2s, background 0.2s;
+		}
+
+		.nav-links a:hover {
+			color: #fff;
+			background: rgba(255, 255, 255, 0.08);
+		}
+
+		.nav-toggle {
+			display: none;
+			background: none;
+			border: none;
+			color: #fff;
+			font-size: 1.4rem;
+			cursor: pointer;
+			padding: 0.25rem;
+		}
+
+		/* ── Hero ── */
+		.hero {
+			background: linear-gradient(135deg, #0b1220 0%, #162032 50%, #1a2744 100%);
+			padding: 8rem 1.5rem 6rem;
+			text-align: center;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.hero::before {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background:
+				radial-gradient(ellipse at 20% 50%, rgba(37, 99, 235, 0.15) 0%, transparent 60%),
+				radial-gradient(ellipse at 80% 20%, rgba(14, 165, 233, 0.1) 0%, transparent 50%);
+			pointer-events: none;
+		}
+
+		.hero .container { position: relative; }
+
+		.hero-avatar {
+			width: 140px;
+			height: 140px;
+			border-radius: 50%;
+			object-fit: cover;
+			margin: 0 auto 1.5rem;
+			border: 3px solid rgba(255, 255, 255, 0.15);
+			box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+		}
+
+		.hero h1 {
+			font-size: clamp(2.2rem, 5vw, 3.2rem);
+			font-weight: 800;
+			color: #fff;
+			letter-spacing: -0.03em;
+			margin-bottom: 0.75rem;
+		}
+
+		.hero-tagline {
+			font-family: var(--font-heading);
+			font-size: clamp(1rem, 2.5vw, 1.2rem);
+			font-weight: 500;
+			color: var(--color-accent);
+			margin-bottom: 1rem;
+		}
+
+		.hero-contact {
+			font-size: 0.95rem;
+			color: rgba(255, 255, 255, 0.6);
+			margin-bottom: 2rem;
+		}
+
+		.hero-contact a {
+			color: rgba(255, 255, 255, 0.8);
+			transition: color 0.2s;
+		}
+
+		.hero-contact a:hover { color: #fff; }
+
+		.hero-contact .sep { margin: 0 0.6rem; opacity: 0.4; }
+
+		.social-links {
+			display: flex;
+			justify-content: center;
+			gap: 0.75rem;
+			list-style: none;
+		}
+
+		.social-links a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 42px;
+			height: 42px;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.08);
+			color: rgba(255, 255, 255, 0.8);
+			font-size: 1rem;
+			transition: background 0.2s, color 0.2s, transform 0.2s;
+		}
+
+		.social-links a:hover {
+			background: var(--color-primary);
+			color: #fff;
+			transform: translateY(-2px);
+		}
+
+		/* ── Sections ── */
+		.section {
+			padding: var(--section-pad);
+		}
+
+		.section-alt { background: var(--color-bg-alt); }
+
+		.section-header {
+			text-align: center;
+			margin-bottom: 3rem;
+		}
+
+		.section-label {
+			display: inline-block;
+			font-family: var(--font-heading);
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--color-primary);
 			margin-bottom: 0.5rem;
 		}
 
-		.social-icons li a {
-			padding: 8px;
-			font-size: 1.2em;
-			border-radius: 50%;
-			color: white !important;
+		.section-title {
+			font-size: clamp(1.6rem, 3vw, 2rem);
+			font-weight: 700;
+			letter-spacing: -0.02em;
 		}
 
-		.social-icons li a:hover {
-			box-shadow: 0px 0px 6px 4px rgba(230, 196, 196, 0.3);
+		/* ── About ── */
+		.about-content {
+			max-width: 720px;
+			margin: 0 auto;
+			text-align: center;
 		}
 
-		/* Sections */
-		section {
-			width: 100%;
+		.about-content p {
+			font-size: 1.05rem;
+			color: var(--color-text-muted);
+			margin-bottom: 1.25rem;
+		}
+
+		.about-content strong {
+			color: var(--color-heading);
+			font-weight: 600;
+		}
+
+		.stats-row {
 			display: flex;
-			flex-direction: column;
-			align-items: center;
+			justify-content: center;
+			gap: 2.5rem;
+			margin-top: 2.5rem;
+			flex-wrap: wrap;
 		}
 
-		section:nth-child(2n) {
-			background-color: #9e9b9b29;
-		}
+		.stat-item { text-align: center; }
 
-		section:nth-child(2n +1) {
-			background-color: white;
-		}
-
-		.section-heading {
-			width: auto;
-			padding: 20px 10px 10px;
-			font-weight: 400;
-		}
-
-		.section-heading span {
-			font-size: 40px;
-			color: #2857a4;
-			display: inline-block;
-			padding-top: 10px;
-			margin-right: 0.5rem;
-		}
-
-		/* About Section */
-
-		#about {
-			height: auto;
-			width: 100%;
-			position: relative;
-		}
-
-		#my-image {
-			height: 15rem;
-			width: 15rem;
-			margin: auto;
-			margin-top: -17vh;
-		}
-
-		#my-image img {
-			height: 100%;
-			width: 100%;
-			border-radius: 50%;
-			border: 3px solid white;
-			box-shadow: 0px 0px 6px 4px grey;
-		}
-
-		#about-text {
-			width: 65%;
-			margin: 10vh auto;
-			text-align: justify;
-			font-size: 1.1em;
-			color: grey;
-		}
-
-		#about-text i {
-			color: #2857a4;
-			font-style: normal;
+		.stat-number {
+			font-family: var(--font-heading);
+			font-size: 1.75rem;
 			font-weight: 800;
+			color: var(--color-primary);
+			letter-spacing: -0.02em;
 		}
 
-		/* Common Margin Classes */
-		.mb75px {
-			margin-bottom: 75px;
+		.stat-label {
+			font-size: 0.85rem;
+			color: var(--color-text-muted);
+			margin-top: 0.15rem;
 		}
 
-		/* Skills Section */
-		.skills-display {
-			width: 70%;
-			height: auto;
+		/* ── Skills ── */
+		.skills-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+			gap: 1.25rem;
+		}
+
+		.skill-category {
+			background: var(--color-surface);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius);
+			padding: 1.5rem;
+			box-shadow: var(--shadow-sm);
+		}
+
+		.skill-category h3 {
+			font-size: 0.95rem;
+			font-weight: 600;
+			margin-bottom: 1rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.skill-category h3 i {
+			color: var(--color-primary);
+			font-size: 0.9rem;
+		}
+
+		.skill-tags {
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: space-evenly;
-			align-items: center;
+			gap: 0.5rem;
 		}
 
-		.skill-progress {
-			background-color: lightgrey;
-			width: 7rem;
-			height: 1.4rem;
-			border-radius: 0.8rem;
-			margin: 25px;
+		.skill-tag {
+			font-size: 0.82rem;
+			font-weight: 500;
+			padding: 0.35rem 0.75rem;
+			border-radius: 6px;
+			background: #eff6ff;
+			color: var(--color-primary-dark);
+			border: 1px solid #dbeafe;
 		}
 
-		.skill-progress>div {
-			border-radius: 20px 0px 0px 20px;
-		}
-
-		.skill-name {
-			padding-left: 10px;
-		}
-
-		.skill-name span {
-			display: inline-block;
-			color: white;
-			font-size: 1rem;
-		}
-
-		/* Work Experience */
-
+		/* ── Experience / Timeline ── */
 		.timeline {
 			position: relative;
-			width: 75%;
+			max-width: 760px;
+			margin: 0 auto;
 		}
 
-		.timeline-box {
-			padding: 5px;
-			width: 40%;
-			position: relative;
-			left: 5%;
-			text-align: right;
-		}
-
-		.timeline-box::after {
+		.timeline::before {
 			content: '';
 			position: absolute;
-			width: 15px;
-			height: 15px;
-			background-color: lightgrey;
-			top: 25%;
+			left: 20px;
+			top: 0;
+			bottom: 0;
+			width: 2px;
+			background: var(--color-border);
+		}
+
+		.timeline-item {
+			position: relative;
+			padding-left: 56px;
+			padding-bottom: 2.5rem;
+		}
+
+		.timeline-item:last-child { padding-bottom: 0; }
+
+		.timeline-dot {
+			position: absolute;
+			left: 12px;
+			top: 4px;
+			width: 18px;
+			height: 18px;
 			border-radius: 50%;
-			z-index: 1;
+			background: var(--color-primary);
+			border: 3px solid var(--color-bg-alt);
+			box-shadow: 0 0 0 2px var(--color-primary);
 		}
 
-		.timeline-box:nth-child(2n) {
-			left: 53%;
+		.section:not(.section-alt) .timeline-dot {
+			border-color: var(--color-bg);
 		}
 
-		.timeline-box:nth-child(2n+1)::after {
-			right: -14.2%;
+		.timeline-card {
+			background: var(--color-surface);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius);
+			padding: 1.5rem;
+			box-shadow: var(--shadow-sm);
+			transition: box-shadow 0.2s;
 		}
 
-		.timeline-box:nth-child(2n)::after {
-			left: -9%;
+		.timeline-card:hover { box-shadow: var(--shadow-md); }
+
+		.timeline-header {
+			display: flex;
+			align-items: flex-start;
+			justify-content: space-between;
+			gap: 1rem;
+			margin-bottom: 0.75rem;
+			flex-wrap: wrap;
 		}
 
-		.timeline-container {
-			padding: 8px;
+		.timeline-role {
+			font-size: 1.1rem;
+			font-weight: 700;
 		}
 
-		.timeline-logo {
-			position: absolute;
-			width: 50px;
-			overflow: hidden;
+		.timeline-company {
+			font-size: 0.95rem;
+			font-weight: 600;
+			color: var(--color-primary);
+			margin-top: 0.15rem;
 		}
 
-		.timeline-logo>img {
-			width: 100%;
+		.timeline-date {
+			font-size: 0.82rem;
+			font-weight: 500;
+			color: var(--color-text-muted);
+			background: var(--color-bg-alt);
+			padding: 0.3rem 0.75rem;
+			border-radius: 6px;
+			white-space: nowrap;
 		}
 
-		#timeline-divider {
-			position: absolute;
-			width: 0;
-			top: 10%;
-			left: 50%;
-			border: 1px dashed #0096fa6b;
-			height: 66%;
-			color: #433E3F;
+		.timeline-desc {
+			font-size: 0.92rem;
+			color: var(--color-text-muted);
+			line-height: 1.65;
 		}
 
-
-		#timeline-divider .timeline-traveller {
-			position: sticky;
-			top: 135px;
-			z-index: 2;
-			transform: scale(3);
+		.timeline-desc li {
+			margin-bottom: 0.4rem;
+			padding-left: 0.25rem;
 		}
 
-		#timeline-divider i {
-			transform: rotate(90deg);
-			margin-top: -35px;
-			display: block;
-			color: #2857a4;
+		/* ── Certifications ── */
+		.cert-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			gap: 1rem;
+			max-width: 900px;
+			margin: 0 auto;
 		}
 
-		.experience-designation {
-			font-size: 1.4rem;
+		.cert-card {
+			display: flex;
+			align-items: center;
+			gap: 1rem;
+			background: var(--color-surface);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius);
+			padding: 1.15rem 1.25rem;
+			box-shadow: var(--shadow-sm);
+			transition: box-shadow 0.2s, border-color 0.2s;
 		}
 
-		.experience-company-name {
-			margin: 5px 0 0;
-			color: #eb822d;
-			font-weight: 400;
-			font-size: 1.2rem;
+		.cert-card:hover {
+			box-shadow: var(--shadow-md);
+			border-color: #bfdbfe;
 		}
 
-		.experience-duration {
-			color: #9e9b9b;
-			font-weight: 100;
-			color: grey;
+		.cert-icon {
+			flex-shrink: 0;
+			width: 42px;
+			height: 42px;
+			border-radius: 10px;
+			background: linear-gradient(135deg, #2563eb, #0ea5e9);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: #fff;
 			font-size: 1rem;
 		}
 
-		.experience-description {
-			font-size: 14px;
-			padding: 2px;
-			color: grey;
-			line-height: 20px;
+		.cert-name {
+			font-family: var(--font-heading);
+			font-size: 0.88rem;
+			font-weight: 600;
+			color: var(--color-heading);
+			line-height: 1.4;
 		}
 
-		.text-align-justify {
-			text-align: justify;
+		/* ── Portfolio ── */
+		.project-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+			gap: 1.5rem;
 		}
 
+		.project-card {
+			background: var(--color-surface);
+			border: 1px solid var(--color-border);
+			border-radius: var(--radius-lg);
+			padding: 1.75rem;
+			box-shadow: var(--shadow-sm);
+			transition: box-shadow 0.25s, transform 0.25s;
+			display: flex;
+			flex-direction: column;
+		}
 
-		/* Portfolio Section */
+		.project-card:hover {
+			box-shadow: var(--shadow-lg);
+			transform: translateY(-3px);
+		}
 
-		#portfolio-container {
-			box-sizing: border-box;
+		.project-icon {
+			width: 48px;
+			height: 48px;
+			border-radius: 12px;
+			background: linear-gradient(135deg, #eff6ff, #dbeafe);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.2rem;
+			color: var(--color-primary);
+			margin-bottom: 1.25rem;
+		}
+
+		.project-card h3 {
+			font-size: 1.05rem;
+			font-weight: 700;
+			margin-bottom: 0.6rem;
+		}
+
+		.project-card p {
+			font-size: 0.9rem;
+			color: var(--color-text-muted);
+			flex: 1;
+			margin-bottom: 1.25rem;
+		}
+
+		.project-tags {
 			display: flex;
 			flex-wrap: wrap;
-			padding: 0 50px;
-			margin-bottom: 20px;
-			justify-content: space-evenly;
+			gap: 0.4rem;
+			margin-bottom: 1.25rem;
 		}
 
-		.portfolio-image-container {
-			max-width: 300px;
-			overflow: hidden;
-			margin: 10px;
-			background-size: cover;
-			background-repeat: no-repeat;
-			position: relative;
+		.project-tag {
+			font-size: 0.75rem;
+			font-weight: 500;
+			padding: 0.25rem 0.6rem;
+			border-radius: 5px;
+			background: var(--color-bg-alt);
+			color: var(--color-text-muted);
+			border: 1px solid var(--color-border);
 		}
 
-		.portfolio-image-container img {
-			width: 100%;
-			height: 100%;
+		.project-link {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.4rem;
+			font-size: 0.88rem;
+			font-weight: 600;
+			color: var(--color-primary);
+			transition: gap 0.2s;
 		}
 
-		.portfolio-details {
-			transition: all 0.5s ease-in-out;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			color: transparent;
-			text-align: center;
-			padding: 15px;
-			font-size: 2.5rem;
+		.project-link:hover { gap: 0.6rem; }
+
+		/* ── Contact ── */
+		.contact-section {
+			background: linear-gradient(135deg, #0b1220 0%, #162032 100%);
+			color: rgba(255, 255, 255, 0.8);
+			padding: var(--section-pad);
 		}
 
-		.portfolio-image-container:hover {
-			box-shadow: 0 0 20px #74adc8;
+		.contact-section .section-label { color: var(--color-accent); }
+		.contact-section .section-title { color: #fff; }
+
+		.contact-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 3rem;
+			max-width: 800px;
+			margin: 0 auto;
 		}
 
-		.portfolio-image-container:hover .portfolio-details {
-			background-color: #80808078;
-			color: white;
+		.contact-info h3 {
+			color: #fff;
+			font-size: 1.1rem;
+			margin-bottom: 0.75rem;
 		}
 
-		/* Contact Section */
-
-		#contact {
-			width: 100%;
-			color: white;
-			background-image: linear-gradient(to right, #2857a4, #403066);
-			padding-bottom: 50px;
+		.contact-info p {
+			font-size: 0.95rem;
+			color: rgba(255, 255, 255, 0.6);
+			margin-bottom: 1.5rem;
 		}
 
-		.contact-heading span {
-			color: white;
-		}
-
-		.contact-container {
+		.contact-item {
 			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-evenly;
-			height: auto;
-			padding-bottom: 40px;
+			align-items: center;
+			gap: 0.75rem;
+			margin-bottom: 1rem;
+			font-size: 0.95rem;
 		}
 
-		.msg-container {
-			width: 30%;
-			text-align: center;
+		.contact-item i {
+			width: 36px;
+			height: 36px;
+			border-radius: 8px;
+			background: rgba(255, 255, 255, 0.08);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			color: var(--color-accent);
+			font-size: 0.85rem;
+			flex-shrink: 0;
 		}
 
-		.msg-container input,
-		textarea {
-			padding: 15px 5px 5px 5px;
-			width: 100%;
-			background-color: transparent;
-			border: none;
-			border-bottom: 2px solid white;
-			font-size: 1.2rem;
+		.contact-item a {
+			color: rgba(255, 255, 255, 0.85);
+			transition: color 0.2s;
 		}
 
-		.msg-container button {
-			color: white;
-			border: 2px solid white;
-			background-color: transparent;
-			border-radius: 2px;
-			padding: 5px;
-			font-size: 1.2rem;
-			margin-top: 20px;
+		.contact-item a:hover { color: #fff; }
+
+		.contact-cta {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			gap: 1rem;
+		}
+
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			gap: 0.5rem;
+			padding: 0.85rem 1.5rem;
+			border-radius: 10px;
+			font-family: var(--font-heading);
+			font-size: 0.9rem;
+			font-weight: 600;
+			transition: background 0.2s, transform 0.2s;
 			cursor: pointer;
-		}
-
-		.msg-container button:hover {
-			background-color: #403066;
-		}
-
-		.msg-container input:focus,
-		textarea:focus {
 			border: none;
-			border-bottom: 2px solid white;
-			outline: none;
-			color: white;
 		}
 
-		.contact-details {
-			width: 30%;
-			overflow-wrap: break-word;
+		.btn-primary {
+			background: var(--color-primary);
+			color: #fff;
 		}
 
-		.contact-details p,
-		.contact-details span {
-			color: #B4C0C8;
-			display: block;
+		.btn-primary:hover {
+			background: var(--color-primary-dark);
+			transform: translateY(-1px);
 		}
 
-		.contact-details span {
-			margin-top: 15px;
+		.btn-outline {
+			background: transparent;
+			color: #fff;
+			border: 1px solid rgba(255, 255, 255, 0.25);
 		}
 
-		.contact-details span i {
-			color: white;
-			margin-right: 5px;
+		.btn-outline:hover {
+			background: rgba(255, 255, 255, 0.08);
+			transform: translateY(-1px);
 		}
 
-		/* Common color classes */
-
-		.mb-blue {
-			background-color: #2857a4;
+		.footer-social {
+			display: flex;
+			justify-content: center;
+			gap: 0.75rem;
+			margin-top: 3rem;
+			padding-top: 2rem;
+			border-top: 1px solid rgba(255, 255, 255, 0.08);
 		}
 
-		.mb-orange {
-			background-color: #EC4D1C;
+		.footer-social a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 40px;
+			height: 40px;
+			border-radius: 10px;
+			background: rgba(255, 255, 255, 0.06);
+			color: rgba(255, 255, 255, 0.7);
+			font-size: 0.95rem;
+			transition: background 0.2s, color 0.2s;
 		}
 
-		.mb-grey {
-			background-color: #93738C;
+		.footer-social a:hover {
+			background: var(--color-primary);
+			color: #fff;
 		}
 
-		.mb-green {
-			background-color: #0B8176;
+		.footer-copy {
+			text-align: center;
+			font-size: 0.8rem;
+			color: rgba(255, 255, 255, 0.35);
+			margin-top: 1.5rem;
 		}
 
+		/* ── Responsive ── */
+		@media (max-width: 768px) {
+			.nav-toggle { display: block; }
 
-		/* For Ipad Pro */
-		@media only screen and (max-width: 1024px) {
-			#my-image {
-				margin-top: -11vh;
-			}
-		}
-
-		/* For Ipad */
-		@media only screen and (max-width: 768px) {
-			#my-image {
-				margin-top: -12vh;
-			}
-		}
-
-		/* For General Mobiles */
-		@media only screen and (max-width: 600px) {
-			html {
-				font-size: 15px;
-			}
-
-			#name-social-container {
-				margin-top: 8vh;
-			}
-
-			#my-name {
-				font-size: 3.5rem;
-			}
-
-			#my-image {
-				margin-top: -20vh;
-			}
-
-			#timeline-divider {
-				left: 5%;
-			}
-
-			.timeline-box {
-				left: 12% !important;
-				width: 80%;
-			}
-
-			.timeline-box::after {
-				left: -10% !important;
-			}
-
-			.contact-container {
+			.nav-links {
+				display: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				right: 0;
 				flex-direction: column;
-				align-items: center;
+				background: rgba(11, 18, 32, 0.97);
+				padding: 0.75rem 1rem 1rem;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 			}
 
-			.contact-container>div {
-				width: 70%;
-				margin: 15px;
+			.nav-links.open { display: flex; }
+
+			.nav-links a {
+				padding: 0.65rem 0.85rem;
+				font-size: 0.95rem;
 			}
 
-			#we {
-				font-size: 1em;
-			}
-		}
+			.hero { padding: 7rem 1.25rem 4rem; }
 
-		/* For Pixel2 XL */
-		@media only screen and (max-width: 412px) {
-			#my-image {
-				margin-top: -15vh;
-			}
-		}
+			.stats-row { gap: 1.5rem; }
 
-		/* For Iphone5/6/7 and below */
-		@media only screen and (max-width: 350px) {
-			#name-social-container {
-				margin-top: -2vh;
+			.contact-grid {
+				grid-template-columns: 1fr;
+				gap: 2rem;
 			}
 
-			#we {
-				font-size: 0.8em;
-			}
-		}
-
-		/* For Galaxy Fold */
-		@media only screen and (max-width: 280px) {
-			#name-social-container {
-				margin-top: 5vh;
-			}
-
-			#my-name {
-				font-size: 2.5rem;
-			}
-
-			#my-image {
-				margin-top: -17vh;
-			}
-
-			#we {
-				font-size: 0.7em;
-			}
-
-			.timeline-logo {
-				left: -4px;
-			}
-
-			#timeline-divider .timeline-traveller {
-				transform: scale(1.5);
-			}
-		}
-
-		/* For Ipad Pro Landscape */
-		@media screen and (orientation: landscape) and (max-height: 1366px) and (width: 1024px) {
-			#my-image {
-				margin-top: -10vh;
-			}
-		}
-
-		@media screen and (orientation: landscape) and (max-height: 520px) {
-			#name-social-container {
-				margin-top: -14vh;
-			}
-
-			#my-name {
-				font-size: 3rem;
-			}
-		}
-
-		@media screen and (orientation: landscape) and (max-height: 415px) {
-			#name-social-container {
-				margin-top: -10vh;
-			}
-
-			#my-image {
-				margin-top: -30vh;
-			}
-		}
-
-		@media screen and (orientation: landscape) and (max-height: 415px) and (min-width: 820px) {
-			#name-social-container {
-				margin-top: 0vh;
-			}
-		}
-
-		@media screen and (orientation: landscape) and (max-height: 360px) {
-			#name-social-container {
-				margin-top: -15vh;
-			}
-
-			#my-image {
-				margin-top: -40vh;
-			}
-		}
-
-		@media screen and (orientation: landscape) and (max-height: 320px) {
-			#name-social-container {
-				margin-top: -12vh;
-			}
-
-			#my-name {
-				font-size: 2.2rem;
-			}
-		}
-
-		/* For Galaxy Fold Landscape */
-		@media screen and (orientation: landscape) and (max-height: 280px) {
-			#my-image {
-				margin-top: -47vh;
-			}
+			.timeline::before { left: 14px; }
+			.timeline-item { padding-left: 44px; }
+			.timeline-dot { left: 6px; }
 		}
 	</style>
-
-	<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
-	<title>Shubham Raman | Cloud & Data Engineer</title>
 </head>
 
 <body>
-	<header id="body-header">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
 
-			<div class="collapse navbar-collapse .text-center" id="navbarSupportedContent">
-				<ul class="navbar-nav mr-auto ml-auto">
-					<li class="nav-item">
-						<a class="nav-link" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#about">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#skills">Skills</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#experience">Experience</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#education">Education</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#certifications">Certifications</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#portfolio">Portfolio</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#contact">Contact</a>
-					</li>
-			</div>
-		</nav>
-		<div id="name-social-container">
-			<div class="text-center">
-				<h1 id="my-name">Shubham Raman</h1>
-				<p style="color: white; font-size: 1.2rem; margin-top: 0.5rem;">Cloud &amp; Data Engineer | Distributed Systems | Azure Architecture</p>
-				<p style="color: #e0e0e0; font-size: 1rem; margin-top: 0.25rem;">
-					<a href="mailto:shubham.raman09@gmail.com" style="color: #e0e0e0;">shubham.raman09@gmail.com</a>
-					&nbsp;•&nbsp; +91 8847621119
-				</p>
-			</div>
-			<div>
-				<ul class="horizontal-list text-center social-icons">
-						<li><a href="https://www.linkedin.com/in/shubhamraman/"><i class="fab fa-linkedin-in"></a></i></li>
-						<li><a href="https://github.com/Shubham912"><i class="fab fa-github"></i></a></li>
-						<li><a href="https://www.instagram.com/shubham.raman09/"><i class="fab fa-instagram"></i></a></li>
-						<li><a href="https://www.facebook.com/shubham.raman.927/"><i class="fab fa-facebook-f"></a></i></li>
-						<li><a href="https://twitter.com/ShubhamRaman9"><i class="fab fa-twitter"></i></a></li>
-				</ul>
-			</div>
+	<!-- Navigation -->
+	<nav class="navbar">
+		<div class="container">
+			<a href="#" class="nav-brand">Shubham<span>.</span></a>
+			<button class="nav-toggle" aria-label="Toggle navigation" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+				<i class="fas fa-bars"></i>
+			</button>
+			<ul class="nav-links">
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#experience">Experience</a></li>
+				<li><a href="#education">Education</a></li>
+				<li><a href="#certifications">Certifications</a></li>
+				<li><a href="#portfolio">Projects</a></li>
+				<li><a href="#contact">Contact</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Hero -->
+	<header class="hero">
+		<div class="container">
+			<img src="images/avatar.jpg" alt="Shubham Raman" class="hero-avatar">
+			<h1>Shubham Raman</h1>
+			<p class="hero-tagline">Cloud &amp; Data Engineer &nbsp;·&nbsp; Backend Systems &nbsp;·&nbsp; Azure Architecture</p>
+			<p class="hero-contact">
+				<a href="mailto:shubham.raman09@gmail.com">shubham.raman09@gmail.com</a>
+				<span class="sep">|</span>
+				+91 8847621119
+			</p>
+			<ul class="social-links">
+				<li><a href="https://www.linkedin.com/in/shubhamraman/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+				<li><a href="https://github.com/Shubham912" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+				<li><a href="mailto:shubham.raman09@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a></li>
+			</ul>
 		</div>
 	</header>
+
 	<main>
-		<section id="about">
-			<div id="my-image">
-				<img src="images/avatar.jpg" alt="">
-			</div>
-			<div id="about-text">
-				<h1 style="text-align: center;"><i>Hello, I am Shubham Raman</i></h1>
-				<p>
-					Cloud &amp; Data Engineering professional with expertise in <i>distributed systems</i>,
-					<i>Azure cloud architecture</i>, and scalable backend platforms. I build high-performance
-					data pipelines and automation-driven solutions across enterprise environments, with a focus on
-					<i>resilient, cloud-native systems</i> and AI-enabled engineering workflows that drive measurable
-					business impact.
-				</p>
-				<p>
-					At <i>MAQ Software</i>, I architect and deliver enterprise-scale platforms — improving performance
-					by 35–80%, reducing manual effort by up to 70%, and maintaining <i>95%+ production SLA</i> in
-					client-facing roles. I hold <i>5 Microsoft certifications</i> including AZ-204, DP-600, DP-700,
-					AB-100, and AI-103.
-				</p>
-			</div>
-		</section>
-		<section id="skills">
-			<h1 class="section-heading mb 75px">
-				<span><i class="fas fa-chalkboard-teacher"></i></span>
-				<span>SKILLS</span>
-			</h1>
-			<div class="skills-display">
-				<div class="skill-progress">
-					<div class="mb-blue" style="width: 90%;">
-						<div class="skill-name">
-							<span>Python</span>
-						</div>
-					</div>
+
+		<!-- About -->
+		<section id="about" class="section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">About Me</span>
+					<h2 class="section-title">Backend systems and data platforms on Azure</h2>
 				</div>
-				<div class="skill-progress">
-					<div class="mb-orange" style="width: 85%;">
-						<div class="skill-name">
-							<span>Azure</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-green" style="width: 85%;">
-						<div class="skill-name">
-							<span>Databricks</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-blue" style="width: 80%;">
-						<div class="skill-name">
-							<span>Java</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-grey" style="width: 80%;">
-						<div class="skill-name">
-							<span>C#</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-green" style="width: 75%;">
-						<div class="skill-name">
-							<span>PySpark</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-orange" style="width: 75%;">
-						<div class="skill-name">
-							<span>React.js</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-blue" style="width: 85%;">
-						<div class="skill-name">
-							<span>SQL</span>
-						</div>
-					</div>
-				</div>
-				<div class="skill-progress">
-					<div class="mb-grey" style="width: 80%;">
-						<div class="skill-name">
-							<span>CI/CD</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section id="experience">
-
-			<h1 class="section-heading mb75px">
-				<span>
-					<i class="fas fa-briefcase"></i>
-				</span>
-				<span id="we"> Work Experience </span>
-			</h1>
-
-			<div class="timeline">
-
-				<div class="timeline-box ">
-					<div class="timeline-container">
-						<div class="timeline-logo">
-							<img src="https://www.maqsoftware.com/img/maq-logo-black.png" alt="MAQ Software">
-						</div>
-						<h3 class="experience-designation m0 m-blue">Software Engineer II</h3>
-						<h4 class="experience-company-name">MAQ Software</h4>
-						<h5 class="experience-duration m0">Mar 2025 – Present</h5>
-						<p class="experience-description text-align-justify">
-							Architected Python/Java AI compliance backend services, reducing manual validation effort by 60%.
-							Built CLI tools and GitHub Actions validation pipelines, improving development velocity by 40%.
-							Optimized Databricks jobs with caching strategies for 35% performance gains. Maintained 95%+ SLA
-							in a lean, client-facing team.
-						</p>
-					</div>
-				</div>
-
-				<div class="timeline-box right ">
-					<div class="timeline-container">
-						<div class="timeline-logo">
-							<img src="https://www.maqsoftware.com/img/maq-logo-black.png" alt="MAQ Software">
-						</div>
-						<h3 class="experience-designation m0 m-blue">Software Engineer I</h3>
-						<h4 class="experience-company-name">MAQ Software</h4>
-						<h5 class="experience-duration m0">Apr 2022 – Feb 2025</h5>
-						<p class="experience-description text-align-justify">
-							Built multithreaded Azure Function Apps in C# for real-time data ingestion at scale.
-							Designed REST APIs for campaign data pipelines, improving workflow efficiency by 50%.
-							Led migration from legacy C# UI to React.js, cutting page load time by 80%.
-							Automated reporting with Logic Apps and SQL Server pipelines, reducing manual effort by 70%.
-						</p>
-					</div>
-				</div>
-
-				<div id="timeline-divider">
-					<div class="timeline-traveller">
-						<div>
-							<i class="fas fa-plane"></i>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</section>
-
-		<section id="education">
-
-			<h1 class="section-heading mb75px">
-				<span>
-					<i class="fas fa-graduation-cap"></i>
-				</span>
-				<span> Education </span>
-			</h1>
-
-			<div class="timeline">
-
-				<div class="timeline-box left ">
-					<div class="timeline-container">
-						<div class="timeline-logo">
-							<img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8e/Chitkara_University_logo.png/220px-Chitkara_University_logo.png" alt="Chitkara University">
-						</div>
-						<h3 class="experience-designation m0 m-blue">B.E. Computer Science</h3>
-						<h4 class="experience-company-name">Chitkara University, Punjab</h4>
-						<h5 class="experience-duration m0">2019 – 2023</h5>
-						<p class="experience-description text-align-justify">
-							Graduated with CGPA 9.91/10. Built strong foundations in algorithms, distributed systems,
-							and software engineering.
-						</p>
-					</div>
-				</div>
-
-				<div id="timeline-divider">
-					<div class="timeline-traveller">
-						<div>
-							<i class="fas fa-car-side"></i>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-		</section>
-
-		<section id="certifications">
-			<h1 class="section-heading mb75px">
-				<span>
-					<i class="fas fa-certificate"></i>
-				</span>
-				<span> Certifications </span>
-			</h1>
-			<div id="about-text" style="margin-top: 0; margin-bottom: 5vh;">
-				<ul style="list-style: none; padding: 0; color: grey; font-size: 1.1em; line-height: 2;">
-					<li><i class="fas fa-award" style="color: #2857a4; margin-right: 10px;"></i>Microsoft Certified: DP-700 – Fabric Data Engineering</li>
-					<li><i class="fas fa-award" style="color: #2857a4; margin-right: 10px;"></i>Microsoft Certified: DP-600 – Fabric Analytics Engineer</li>
-					<li><i class="fas fa-award" style="color: #2857a4; margin-right: 10px;"></i>Microsoft Certified: AZ-204 – Azure Developer Associate</li>
-					<li><i class="fas fa-award" style="color: #2857a4; margin-right: 10px;"></i>Microsoft Certified: AB-100 – Azure Business Intelligence</li>
-					<li><i class="fas fa-award" style="color: #2857a4; margin-right: 10px;"></i>Microsoft Certified: AI-103 – Azure AI Engineer Associate</li>
-				</ul>
-			</div>
-		</section>
-
-		<section id="portfolio">
-			<h1 class="section-heading mb75px">
-				<span>
-					<i class="fas fa-th-list"></i>
-				</span>
-				<span> Portfolio </span>
-			</h1>
-
-			<div id="portfolio-container">
-
-				<div class="portfolio-image-container">
-					<img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png" alt="AI Compliance Platform">
-					<div class="portfolio-details">
-						<p>
-							AI/ML Compliance Automation Platform — Python/Java backend with GitHub CI/CD integration,
-							reducing manual validation effort by 60% across enterprise workflows.
-						</p>
-					</div>
-				</div>
-
-				<div class="portfolio-image-container">
-					<img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png" alt="Real-Time Data Processing">
-					<div class="portfolio-details">
-						<p>
-							High-Throughput Real-Time Data Processing — Multithreaded Azure Function App processing
-							millions of events via Event Hubs and ADLS Gen2 with fault-tolerant architecture.
-						</p>
-					</div>
-				</div>
-
-				<div class="portfolio-image-container">
-					<img src="https://ninjasfiles.s3.amazonaws.com/asset_0000000000000025_1550237330_codezen_2.png" alt="Inventory Management System">
-					<div class="portfolio-details">
-						<p>
-							<a href="https://inventory-order-management-system-weld-five.vercel.app" style="color: white;" target="_blank" rel="noopener">
-								Inventory &amp; Order Management System — Full-stack app with React, FastAPI, PostgreSQL,
-								and Docker. Live demo available.
-							</a>
-						</p>
-					</div>
-				</div>
-
-			</div>
-		</section>
-		<section id="contact">
-			<h1 class="section-heading mb75px contact-heading">
-				<span>
-					<i class="far fa-address-card"></i>
-				</span>
-				<span> Contact </span>
-			</h1>
-			<div class="contact-container">
-				<div class="msg-container">
-					<form action="">
-						<input type="text" placeholder="Your Name">
-						<input type="email" placeholder="Your Email">
-						<textarea cols="30" rows="4" placeholder="Message"></textarea>
-						<button>SEND MESSAGE</button>
-					</form>
-				</div>
-				<div class="contact-details">
-					<h3>Get in touch</h3>
+				<div class="about-content">
 					<p>
-						Open to opportunities in cloud engineering, data platforms, and backend architecture.
-						Feel free to reach out for collaborations, consulting, or full-time roles.
+						Software engineer with 4+ years building <strong>backend services</strong> and
+						<strong>data platforms</strong> on Microsoft Azure. I work across the stack — from
+						<strong>Java, C#, and Python</strong> APIs and microservices to Databricks pipelines,
+						ADF workflows, and real-time data processing at enterprise scale.
 					</p>
-					<h3>My Address</h3>
-					<span>
-						<i class="fas fa-map-marker-alt"></i>
-						Noida, Uttar Pradesh, India
-					</span>
-					<span>
-						<i class="fas fa-mobile-alt"></i>
-						8847621119
-					</span>
-					<span>
-						<i class="far fa-envelope"></i>
-						shubham.raman09@gmail.com
-					</span>
+					<p>
+						At <strong>MAQ Software</strong>, I deliver end-to-end — architecting AI compliance backends,
+						optimizing Databricks jobs, building multithreaded Azure Functions, and leading React
+						migrations. Consistently improving performance by 35–80%, reducing manual effort by up to 70%,
+						and maintaining <strong>95%+ production SLA</strong>. Holder of <strong>5 Microsoft certifications</strong>.
+					</p>
+					<div class="stats-row">
+						<div class="stat-item">
+							<div class="stat-number">4+</div>
+							<div class="stat-label">Years Experience</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">5</div>
+							<div class="stat-label">Microsoft Certs</div>
+						</div>
+						<div class="stat-item">
+							<div class="stat-number">95%+</div>
+							<div class="stat-label">Production SLA</div>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div>
-				<ul class="horizontal-list text-center social-icons">
-					<li><a href="https://www.linkedin.com/in/shubhamraman/"><i class="fab fa-linkedin-in"></a></i></li>
-					<li><a href="https://github.com/Shubham912"><i class="fab fa-github"></i></a></li>
-					<li><a href="https://www.instagram.com/shubham.raman09/"><i class="fab fa-instagram"></i></a></li>
-					<li><a href="https://www.facebook.com/shubham.raman.927/"><i class="fab fa-facebook-f"></a></i></li>
-					<li><a href="https://twitter.com/ShubhamRaman9"><i class="fab fa-twitter"></i></a></li>
-				</ul>
+		</section>
+
+		<!-- Skills -->
+		<section id="skills" class="section section-alt">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Expertise</span>
+					<h2 class="section-title">Technical Skills</h2>
+				</div>
+				<div class="skills-grid">
+					<div class="skill-category">
+						<h3><i class="fas fa-code"></i> Languages</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">Java</span>
+							<span class="skill-tag">C#</span>
+							<span class="skill-tag">PySpark</span>
+							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">TypeScript</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3><i class="fas fa-cloud"></i> Cloud &amp; Data</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Microsoft Azure</span>
+							<span class="skill-tag">Databricks</span>
+							<span class="skill-tag">Microsoft Data Factory</span>
+							<span class="skill-tag">ADLS Gen2</span>
+							<span class="skill-tag">Microsoft Fabric</span>
+							<span class="skill-tag">App Services</span>
+							<span class="skill-tag">Logic Apps</span>
+							<span class="skill-tag">Azure SQL</span>
+							<span class="skill-tag">Kusto (KQL)</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3><i class="fas fa-server"></i> Backend &amp; DevOps</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">REST APIs</span>
+							<span class="skill-tag">Azure Functions</span>
+							<span class="skill-tag">Multithreading</span>
+							<span class="skill-tag">Microservices</span>
+							<span class="skill-tag">ETL Pipelines</span>
+							<span class="skill-tag">GitHub Actions</span>
+							<span class="skill-tag">Azure DevOps</span>
+							<span class="skill-tag">CI/CD</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3><i class="fas fa-layer-group"></i> Frontend &amp; Tools</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">React.js</span>
+							<span class="skill-tag">Playwright</span>
+							<span class="skill-tag">Docker</span>
+							<span class="skill-tag">Git</span>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
-	</main>
-</body>
 
+		<!-- Experience -->
+		<section id="experience" class="section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Career</span>
+					<h2 class="section-title">Work Experience</h2>
+				</div>
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="timeline-dot"></div>
+						<div class="timeline-card">
+							<div class="timeline-header">
+								<div>
+									<div class="timeline-role">Software Engineer II</div>
+									<div class="timeline-company">MAQ Software</div>
+								</div>
+								<span class="timeline-date">Mar 2025 – Present</span>
+							</div>
+							<ul class="timeline-desc">
+								<li>Architected Python/Java AI compliance backend services, reducing manual validation effort by 60%.</li>
+								<li>Built CLI tools and GitHub Actions validation pipelines, improving development velocity by 40%.</li>
+								<li>Optimized Databricks jobs with caching strategies for 35% performance gains.</li>
+								<li>Maintained 95%+ SLA in a lean, client-facing engineering team.</li>
+							</ul>
+						</div>
+					</div>
+					<div class="timeline-item">
+						<div class="timeline-dot"></div>
+						<div class="timeline-card">
+							<div class="timeline-header">
+								<div>
+									<div class="timeline-role">Software Engineer I</div>
+									<div class="timeline-company">MAQ Software</div>
+								</div>
+								<span class="timeline-date">Apr 2022 – Feb 2025</span>
+							</div>
+							<ul class="timeline-desc">
+								<li>Built multithreaded Azure Function Apps in C# for real-time data ingestion at scale.</li>
+								<li>Designed REST APIs for campaign data pipelines, improving workflow efficiency by 50%.</li>
+								<li>Led migration from legacy C# UI to React.js, cutting page load time by 80%.</li>
+								<li>Automated reporting with Logic Apps and SQL Server pipelines, reducing manual effort by 70%.</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Education -->
+		<section id="education" class="section section-alt">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Academics</span>
+					<h2 class="section-title">Education</h2>
+				</div>
+				<div class="timeline">
+					<div class="timeline-item">
+						<div class="timeline-dot"></div>
+						<div class="timeline-card">
+							<div class="timeline-header">
+								<div>
+									<div class="timeline-role">B.E. Computer Science</div>
+									<div class="timeline-company">Chitkara University, Punjab</div>
+								</div>
+								<span class="timeline-date">2019 – 2023</span>
+							</div>
+							<p class="timeline-desc">
+								Graduated with CGPA <strong>9.91/10</strong>. Built strong foundations in algorithms,
+								distributed systems, and software engineering.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Certifications -->
+		<section id="certifications" class="section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Credentials</span>
+					<h2 class="section-title">Certifications</h2>
+				</div>
+				<div class="cert-grid">
+					<div class="cert-card">
+						<div class="cert-icon"><i class="fas fa-certificate"></i></div>
+						<div class="cert-name">Microsoft Certified: DP-700 – Fabric Data Engineering</div>
+					</div>
+					<div class="cert-card">
+						<div class="cert-icon"><i class="fas fa-certificate"></i></div>
+						<div class="cert-name">Microsoft Certified: DP-600 – Fabric Analytics Engineer</div>
+					</div>
+					<div class="cert-card">
+						<div class="cert-icon"><i class="fas fa-certificate"></i></div>
+						<div class="cert-name">Microsoft Certified: AZ-204 – Azure Developer Associate</div>
+					</div>
+					<div class="cert-card">
+						<div class="cert-icon"><i class="fas fa-certificate"></i></div>
+						<div class="cert-name">Microsoft Certified: AB-100 – Azure Business Intelligence</div>
+					</div>
+					<div class="cert-card">
+						<div class="cert-icon"><i class="fas fa-certificate"></i></div>
+						<div class="cert-name">Microsoft Certified: AI-103 – Azure AI Engineer Associate</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Portfolio -->
+		<section id="portfolio" class="section section-alt">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Work</span>
+					<h2 class="section-title">Featured Projects</h2>
+				</div>
+				<div class="project-grid">
+					<div class="project-card">
+						<div class="project-icon"><i class="fas fa-robot"></i></div>
+						<h3>AI/ML Compliance Automation Platform</h3>
+						<p>End-to-end compliance validation system in Python and Java with GitHub CI/CD integration, reducing manual validation effort by 60% across enterprise workflows.</p>
+						<div class="project-tags">
+							<span class="project-tag">Python</span>
+							<span class="project-tag">Java</span>
+							<span class="project-tag">GitHub Actions</span>
+						</div>
+					</div>
+					<div class="project-card">
+						<div class="project-icon"><i class="fas fa-bolt"></i></div>
+						<h3>Real-Time Data Processing System</h3>
+						<p>Multithreaded Azure Function App processing millions of events via Event Hubs and ADLS Gen2 with a fault-tolerant, horizontally scalable architecture.</p>
+						<div class="project-tags">
+							<span class="project-tag">C#</span>
+							<span class="project-tag">Azure Functions</span>
+							<span class="project-tag">Event Hubs</span>
+						</div>
+					</div>
+					<div class="project-card">
+						<div class="project-icon"><i class="fas fa-boxes-stacked"></i></div>
+						<h3>Inventory &amp; Order Management System</h3>
+						<p>Full-stack application for products, customers, and orders with live inventory tracking, built with React, FastAPI, PostgreSQL, and Docker.</p>
+						<div class="project-tags">
+							<span class="project-tag">React</span>
+							<span class="project-tag">FastAPI</span>
+							<span class="project-tag">PostgreSQL</span>
+							<span class="project-tag">Docker</span>
+						</div>
+						<a href="https://inventory-order-management-system-weld-five.vercel.app" class="project-link" target="_blank" rel="noopener">
+							View Live Demo <i class="fas fa-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact -->
+		<section id="contact" class="contact-section">
+			<div class="container">
+				<div class="section-header">
+					<span class="section-label">Connect</span>
+					<h2 class="section-title">Get In Touch</h2>
+				</div>
+				<div class="contact-grid">
+					<div class="contact-info">
+						<h3>Let's work together</h3>
+						<p>Open to opportunities in cloud &amp; data engineering, backend development (Java/Python), and platform engineering on Azure.</p>
+						<div class="contact-item">
+							<i class="fas fa-map-marker-alt"></i>
+							<span>Noida, Uttar Pradesh, India</span>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-phone"></i>
+							<a href="tel:+918847621119">+91 8847621119</a>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-envelope"></i>
+							<a href="mailto:shubham.raman09@gmail.com">shubham.raman09@gmail.com</a>
+						</div>
+					</div>
+					<div class="contact-cta">
+						<a href="mailto:shubham.raman09@gmail.com" class="btn btn-primary">
+							<i class="fas fa-paper-plane"></i> Send Email
+						</a>
+						<a href="https://www.linkedin.com/in/shubhamraman/" class="btn btn-outline" target="_blank" rel="noopener">
+							<i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+						</a>
+					</div>
+				</div>
+				<div class="footer-social">
+					<a href="https://www.linkedin.com/in/shubhamraman/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+					<a href="https://github.com/Shubham912" aria-label="GitHub"><i class="fab fa-github"></i></a>
+					<a href="mailto:shubham.raman09@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+				</div>
+				<p class="footer-copy">&copy; 2026 Shubham Raman. All rights reserved.</p>
+			</div>
+		</section>
+
+	</main>
+
+</body>
 </html>
